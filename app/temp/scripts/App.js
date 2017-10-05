@@ -11805,16 +11805,40 @@ var ImgSlider = function () {
     function ImgSlider() {
         _classCallCheck(this, ImgSlider);
 
-        this.portfolioShowcase = (0, _jquery2.default)('.portfolio__showcase');
-        this.addImagesToTheDOM();
+        this.sliderImg = (0, _jquery2.default)('.slider-img');
+        this.next = (0, _jquery2.default)('.next');
+        this.prev = (0, _jquery2.default)('.prev');
+        this.num = 0;
+        this.images = ['./assets/images/slider-img-happyboat-02.png', './assets/images/slider-img-otakuHeaven-03.png', './assets/images/slider-img-omnifood-04.png', './assets/images/slider-img-personalSite-05.png', './assets/images/slider-img-clearview-06.png'];
+
+        this.event();
     }
 
     _createClass(ImgSlider, [{
-        key: 'addImagesToTheDOM',
-        value: function addImagesToTheDOM() {
-            var html = '<img src="./assets/images/mikymeals-mac-frame.png" alt="mikeyMeals">';
-
-            this.portfolioShowcase.innerHtml = html;
+        key: 'event',
+        value: function event() {
+            this.next.click(this.onClickNext.bind(this));
+            this.prev.click(this.onClickPrev.bind(this));
+        }
+    }, {
+        key: 'onClickNext',
+        value: function onClickNext() {
+            this.num++;
+            if (this.num >= this.images.length) {
+                this.num = 0;
+            }
+            this.sliderImg.attr('srcset', this.images[this.num]);
+            console.log(this.num);
+        }
+    }, {
+        key: 'onClickPrev',
+        value: function onClickPrev() {
+            this.num--;
+            if (this.num < 0) {
+                this.num = this.images.length - 1;
+            }
+            this.sliderImg.attr('srcset', this.images[this.num]);
+            console.log(this.num);
         }
     }]);
 

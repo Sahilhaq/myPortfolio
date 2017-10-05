@@ -1351,9 +1351,16 @@ body {
             box-shadow: 0 0 2px #000;
     background: #1B1B1B;
     width: 100%;
-    height: 40px;
+    height: 60px;
     padding: 10px 10px 0 20px;
 }
+
+@media(min-width: 500px){
+
+.site-footer {
+        height: 40px
+}
+    }
 
 .site-footer--is-fixed {
         position: fixed;
@@ -1362,16 +1369,37 @@ body {
     }
 
 .site-footer p {
-        float: left;
-        margin: 0;
+        margin: 0 auto;
         color: #aaaaaa;
         font-size: .90rem;
+        display: block;
+        text-align: center;
+        margin-bottom: 6px;
+        padding-left: 15px;
+    }
+
+@media(min-width: 500px){
+
+.site-footer p {
+            padding-left: 0;
+            margin-bottom: 0;
+            float: left;
+            display: inline-block
+    }
     }
 
 .site-footer ul {
-        font-style: none;
-        float: right;
         margin: 0;
+        font-style: none;
+        text-align: center;
+    }
+
+@media(min-width: 500px){
+
+.site-footer ul {
+            float: right;
+            display: inline-block
+    }
     }
 
 .site-footer li {
@@ -1748,9 +1776,9 @@ body {
 @media(min-width: 800px){
 
 .about__top {
-			height: 100vh;
+			height: 100%;
 			margin-bottom: 0;
-			margin-bottom: -80px
+			margin-bottom: 200px
 	}
     }
 
@@ -1833,7 +1861,7 @@ body {
 @media(min-width: 800px){
 
 .about__me {
-			height: 100vh;
+			height: 100%;
 			padding-bottom: 0
 	}
     }
@@ -1924,6 +1952,7 @@ body {
 .contact {
 	background: #27272b;
 	height: 100%;
+	padding-bottom: 150px;
 }
 
 .contact__form {
@@ -2016,7 +2045,10 @@ body {
     }
     }
 
-.portfolio #slider { overflow: hidden; }
+.portfolio #slider { 
+        overflow: hidden; 
+        position: relative;
+    }
 
 .portfolio #slider figure img { 
         width: 20%; 
@@ -2045,8 +2077,32 @@ body {
       left: 0;
       text-align: left;
       font-size: 0;
-      -webkit-animation: 20s slidy infinite;
-              animation: 20s slidy infinite; 
+    }
+
+.portfolio .next, .portfolio .prev {
+        position: absolute;
+        z-index: 100;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+        border: 0;
+        background: rgba(253, 251, 251, 0.49);
+        height: 100px;
+        width: 50px;
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+.portfolio .next:focus, .portfolio .prev:focus {
+            outline: none;
+        }
+
+.portfolio .next {
+        right: 0;
+    }
+
+.portfolio .prev {
+        left: 0;
     }
 
 /* WAYPOINT ANIMATIONS */
