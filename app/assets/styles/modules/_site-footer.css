@@ -56,4 +56,10 @@
     span {
         color: #E41717;
     }
+
+    
+}
+
+.no-red {
+    text-transform: lowercase !important;
 }

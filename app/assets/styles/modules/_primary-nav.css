@@ -17,7 +17,7 @@
         position: relative;
         top: none;
         right: none;
-        height: inherit;
+        height: 50px;
         width: inherit;
         transform: translateX(0);
     }
